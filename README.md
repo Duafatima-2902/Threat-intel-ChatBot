@@ -5,13 +5,13 @@ Your sarcastic AI Threat Intel Sidekick
 
 “Hackers never sleep… but hey, at least I can roast them while keeping you informed.”
 
-🚀 What is CyberJester?
+# 🚀 What is CyberSass?
 
-CyberJester is an AI-powered cybersecurity chatbot that fetches the latest threats, CVEs, and security news and explains them in a funny, sarcastic, beginner-friendly way.
+CyberSass is an AI-powered cybersecurity chatbot that fetches the latest threats, CVEs, and security news and explains them in a funny, sarcastic, beginner-friendly way.
 
 Instead of boring reports, CyberJester makes cybersecurity updates feel like talking to a witty friend.
 
-✨ Features
+# ✨ Features
 
 ✅ Fetches latest cybersecurity news & CVE updates
 ✅ Sarcastic & fun responses (never a dull moment 🥱👉😂)
@@ -20,7 +20,7 @@ Instead of boring reports, CyberJester makes cybersecurity updates feel like tal
 ✅ Powered by Gemini API + LangChain
 ✅ Runs on a simple Streamlit web app
 
-🛠️ Tech Stack
+# 🛠️ Tech Stack
 
 Python 3.10+
 
@@ -39,12 +39,12 @@ Requests
 Feedparser
  – for RSS news
 
-📦 Installation
+# 📦 Installation
 
 Clone this repo
 
-git clone https://github.com/yourusername/cyberjester.git
-cd cyberjester
+git clone https://github.com/Duafatima-2902/Threat-intel-ChatBot
+cd cyberSass
 
 
 Set up a virtual environment
@@ -65,7 +65,7 @@ Add your API keys in .env
 
 GEMINI_API_KEY=your_gemini_api_key_here
 
-▶️ Run the App
+# ▶️ Run the App
 streamlit run app.py
 
 
@@ -76,7 +76,7 @@ Now open your browser at 👉 http://localhost:8501
 🤡 Example Chat
 
 You: “What’s the latest phishing trend?”
-CyberJester: “Oh, you mean besides Nigerian princes and fake Netflix logins? Well, apparently hackers now send fake invoice scams. Because who doesn’t love a good surprise bill? 💸”
+CyberSass: “Oh, you mean besides Nigerian princes and fake Netflix logins? Well, apparently hackers now send fake invoice scams. Because who doesn’t love a good surprise bill? 💸”
 
 🌍 Roadmap
 
