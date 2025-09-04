@@ -1,91 +1,103 @@
-# 🛡️ AI-Powered Threat Intelligence Chatbot (LangChain + Streamlit)
+🛡️ AI-Powered Threat Intelligence Chatbot (LangChain + Streamlit)
+🎭 CyberSass 🤡🛡️
 
-Beginner-friendly project that fetches public cyber threat intel (CVE, CISA KEV, security news) and lets you ask natural-language questions like:
-- *“What are the latest vulnerabilities in Windows?”*
-- *“Summarize recent phishing trends.”*
+Your sarcastic AI Threat Intel Sidekick
 
-It uses LangChain for retrieval + summarization and a **free LLM** via the Hugging Face Inference API by default (or **Ollama** locally).
+“Hackers never sleep… but hey, at least I can roast them while keeping you informed.”
 
-## ✨ Features
-- Ingest **CVE** (CIRCL), **CISA Known Exploited Vulnerabilities**, **security RSS feeds**, **Hacker News security stories**.
-- Optional indicator enrichment: **OTX**, **AbuseIPDB**, **GreyNoise** (free keys).
-- Local embeddings (**all-MiniLM-L6-v2**) + **Chroma** vector DB (no paid keys).
-- Streamlit UI: one-click ingest, Q&A, and Daily Brief.
+🚀 What is CyberJester?
 
-## 🧰 Prereqs
-- Python 3.10+
-- (Option A) Free **Hugging Face** token for hosted LLM
-- (Option B) **Ollama** running locally with a chat model (e.g. `llama3.1:8b`)
+CyberJester is an AI-powered cybersecurity chatbot that fetches the latest threats, CVEs, and security news and explains them in a funny, sarcastic, beginner-friendly way.
 
-## 🔑 Free API keys you can use
-All optional except the LLM token unless you use Ollama.
+Instead of boring reports, CyberJester makes cybersecurity updates feel like talking to a witty friend.
 
-- **Hugging Face Inference API** (free):
-  1. Create account: https://huggingface.co/
-  2. Go to **Settings → Access Tokens → New token** (type: *Read*). 
-  3. Put it in `.env` as `HUGGINGFACEHUB_API_TOKEN`.
+✨ Features
 
-- **NVD CVE API** (free, increases rate limits):
-  1. Request key: https://nvd.nist.gov/developers/request-an-api-key
-  2. Put it in `.env` as `NVD_API_KEY`.
+✅ Fetches latest cybersecurity news & CVE updates
+✅ Sarcastic & fun responses (never a dull moment 🥱👉😂)
+✅ Explains complex security terms in simple words for beginners
+✅ Memory-enabled conversations – it remembers your past questions
+✅ Powered by Gemini API + LangChain
+✅ Runs on a simple Streamlit web app
 
-- **AlienVault OTX** (free registration):
-  1. Sign up and get an API key from your profile.
-  2. Put it in `.env` as `OTX_API_KEY`.
+🛠️ Tech Stack
 
-- **AbuseIPDB** (free tier 1,000 checks/day):
-  1. Create account: https://www.abuseipdb.com/ (Dashboard → API).
-  2. Put it in `.env` as `ABUSEIPDB_API_KEY`.
+Python 3.10+
 
-- **GreyNoise Community API** (free, limited lookups):
-  1. Create free account and get key.
-  2. Put it in `.env` as `GREYNOISE_API_KEY`.
+Streamlit
+ – simple web UI
 
-> Public feeds that **require no key** and are already wired in:
-> - CIRCL last CVEs, CISA KEV, RSS (BleepingComputer, The Hacker News), HN Algolia search.
+LangChain
+ – memory & chaining
 
-## 🚀 Run it
-```bash
-git clone <this-zip-or-repo>
-cd threat_intel_chatbot
-python -m venv .venv && source .venv/bin/activate  # Windows: .venv\Scripts\activate
+Gemini API
+ – the brain of CyberSass
+
+Requests
+ – fetching feeds
+
+Feedparser
+ – for RSS news
+
+📦 Installation
+
+Clone this repo
+
+git clone https://github.com/yourusername/cyberjester.git
+cd cyberjester
+
+
+Set up a virtual environment
+
+python -m venv .venv
+# On Windows
+.venv\Scripts\activate
+# On Mac/Linux
+source .venv/bin/activate
+
+
+Install dependencies
+
 pip install -r requirements.txt
 
-cp .env.example .env
-# EITHER set a HF token (default)
-echo 'HUGGINGFACEHUB_API_TOKEN=your_token' >> .env
-# OPTIONAL: choose a different HF model
-echo 'HF_REPO_ID=HuggingFaceH4/zephyr-7b-beta' >> .env
 
-# OR use Ollama locally (no hosted token needed)
-# ollama run llama3.1:8b  # first-time pull
-# echo 'OLLAMA_BASE_URL=http://localhost:11434' >> .env
-# echo 'OLLAMA_MODEL=llama3.1:8b' >> .env
+Add your API keys in .env
 
+GEMINI_API_KEY=your_gemini_api_key_here
+
+▶️ Run the App
 streamlit run app.py
-```
 
-## 🧱 Project structure
-```
-.
-├── app.py                 # Streamlit UI
-├── requirements.txt
-├── .env.example
-└── src
-    ├── chains.py          # QA & summarization chains
-    ├── config.py          # feed lists and constants
-    ├── ingest.py          # feed/API fetchers -> LangChain Documents
-    ├── llm.py             # LLM provider (HF or Ollama)
-    └── storage.py         # Chroma vector store helpers
-```
 
-## 🧪 Try these prompts
-- *“Summarize trending phishing lures this week and list sources.”*
-- *“List high-severity CVEs affecting Linux published in the last 7 days.”*
-- *“Compare KEV vs. NVD coverage for CVE-YYYY-XXXX.”*
-- *“Is IP 1.2.3.4 noisy or malicious?”* (if you added indicator lookups)
+Now open your browser at 👉 http://localhost:8501
 
-## ⚠️ Notes
-- Respect each API’s rate limits and Terms.
-- Results from public feeds can be noisy; verify before acting.
-- For larger data, consider a background scheduler (e.g., cron) and a real database for raw JSON.
+<img width="1353" height="825" alt="image" src="https://github.com/user-attachments/assets/b5a84380-5f5f-459c-a29d-33ea6bea82bb" />
+
+🤡 Example Chat
+
+You: “What’s the latest phishing trend?”
+CyberJester: “Oh, you mean besides Nigerian princes and fake Netflix logins? Well, apparently hackers now send fake invoice scams. Because who doesn’t love a good surprise bill? 💸”
+
+🌍 Roadmap
+
+ Add dark mode UI 🌑
+
+ Integrate more threat feeds (AbuseIPDB, OTX)
+
+ Export daily brief as PDF
+
+ Deploy on HuggingFace Spaces
+
+🤝 Contributing
+
+Pull requests are welcome! For major changes, open an issue first to discuss what you’d like to change.
+
+📜 License
+
+MIT License – free to use, modify, and sass around 😎
+
+💡 Credits
+
+Built with ❤️ by Dua Fatima
+Powered by Gemini + LangChain + Streamlit
+
