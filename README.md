@@ -1,5 +1,5 @@
-🛡️ AI-Powered Threat Intelligence Chatbot (LangChain + Streamlit)
-🎭 CyberSass 🤡🛡️
+# 🛡️ AI-Powered Threat Intelligence Chatbot (LangChain + Streamlit)
+# 🎭 CyberSass 🤡🛡️
 
 Your sarcastic AI Threat Intel Sidekick
 
